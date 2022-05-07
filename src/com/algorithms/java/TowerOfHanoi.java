@@ -65,7 +65,7 @@ public class TowerOfHanoi {
             return;
         }
         towerOfHanoi(n - 1, from_rod, aux_rod, to_rod);
-        System.out.println("Move disk "+ n + " from " +
+        System.out.println("Move disk " + n + " from " +
                 from_rod +" to " + to_rod);
         towerOfHanoi(n - 1, aux_rod, to_rod, from_rod);
     }
