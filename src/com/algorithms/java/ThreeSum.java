@@ -32,7 +32,6 @@ public class ThreeSum {
     }
 
     public static void threeSumArray (int[] inputArr) {
-        System.out.println(inputArr);
         int arrayLength = inputArr.length;
         ArrayList<ArrayList<Integer>> tripleSum = new ArrayList<>();
         Arrays.sort(inputArr);
@@ -58,8 +57,7 @@ public class ThreeSum {
                     }
                 }
             }
-            while (i<arrayLength && inputArr[i] == inputArr[i+1]) i++;
+            while (i+1 < arrayLength && inputArr[i] == inputArr[i+1]) i++;
         }
-        System.out.println("Found Triple Sum");
     }
 }
