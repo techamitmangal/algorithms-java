@@ -5,7 +5,6 @@ public class MergeSort {
         int arr[] = {34,45,23,89,56,67,89,88,55};
         int left = 0;
         int right = arr.length;
-        int middle = (int) Math.ceil((float) (left+right)/2);
         sortItems(arr, left, right-1);
         printArray(arr);
     }
