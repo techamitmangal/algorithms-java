@@ -50,7 +50,7 @@ public class Combination_Sum_II_Leet_Code_40 {
         List<Integer> currentList = new ArrayList<>();
         int arrLength = candidates.length;
         Arrays.sort(candidates);
-        findSum(candidates, target, arrLength, 0, currentList, result);
+        findSumForCodeReview(candidates, target, arrLength, 0, currentList, result);
         for (List<Integer> combination : result) {
             System.out.println(combination);
         }
@@ -58,6 +58,28 @@ public class Combination_Sum_II_Leet_Code_40 {
     }
 
     public static void findSum(int[] candidates, int target, int arrLength, int start, List<Integer> currentList, List<List<Integer>> result) {
+
+        if (target == 0) {
+            result.add(new ArrayList<>(currentList));
+            return;
+        }
+
+        if (target < 0) {
+            return;
+        }
+
+        for (int i = start; i<arrLength; i++) {
+            if (i>start && candidates[i]==candidates[i-1]) {
+                continue;
+            }
+            currentList.add(candidates[i]);
+            findSum(candidates, target - candidates[i], arrLength, i+1, currentList, result);
+            currentList.remove(currentList.size()-1);
+        }
+    }
+
+
+    public static void findSumForCodeReview(int[] candidates, int target, int arrLength, int start, List<Integer> currentList, List<List<Integer>> result) {
 
         if (target == 0) {
             result.add(new ArrayList<>(currentList));
