@@ -28,9 +28,13 @@ package com.algorithms.java.leetcode.pattern.twopointers;
 public class MinNumOfMovesToMakePalindrome {
 
     public static void main (String[] args) {
-        //String s = "ccxx" ;
-        String s = "olstzgogeivvvgctrsbusvihcvbzzvsscycituqylxjoknhrcvuuzbtzlitovccykivkuavxzgvlmtiqtnmshonqclcknptabpewxxtqnvreoiyucsujxooxhoxwqirtqfzbgjgpsvlsmqfbmcsqlxirogcbwuiepmzifcljytcpougvfrihfjztikkjjtoyszhmfdqculcrmlwdameewzfznakyfgktonpqqouhnvvddtsoaxtbwhhyekokxpizxlhpdfghctuigaqcvpqsopgjrxoiroyfitofwojveowkqvosyqjuesovhqhrvryvdjbtykrvdrvrlyrayccfzzvcuagzziwmtbnrlvyytomwlzqqyworqmwuhnorihzgnrwbqbyqakrmfkdhutjlvjikxybztupvwqrrnxnfybbshxrbuwyxxgbrkbkvwutrcdtcryffdclccfdgljubxxefnxfvqfvwmtqyehslovoskmxdgiuncvlravylmdenqgzbirfvvakflzstzysfdmziurzmunxvijdlkjyrxlyndzleujdzhlcvuffbwsutlkbpqihdmqlbphvnhqgctogiqzsiwttbfycjbbwhhpfduuldcjwinrzuvspmumgzujyyhtqcekfrvcihnhhshnvipzjtjocmazghntrnruwkmko";
-        System.out.println("Min number of moves = " + minMovesToMakePalindrome(s));
+        //String s = "eggeekgbbeg" ;
+        //String s = "olstzgogeivvvgctrsbusvihcvbzzvsscycituqylxjoknhrcvuuzbtzlitovccykivkuavxzgvlmtiqtnmshonqclcknptabpewxxtqnvreoiyucsujxooxhoxwqirtqfzbgjgpsvlsmqfbmcsqlxirogcbwuiepmzifcljytcpougvfrihfjztikkjjtoyszhmfdqculcrmlwdameewzfznakyfgktonpqqouhnvvddtsoaxtbwhhyekokxpizxlhpdfghctuigaqcvpqsopgjrxoiroyfitofwojveowkqvosyqjuesovhqhrvryvdjbtykrvdrvrlyrayccfzzvcuagzziwmtbnrlvyytomwlzqqyworqmwuhnorihzgnrwbqbyqakrmfkdhutjlvjikxybztupvwqrrnxnfybbshxrbuwyxxgbrkbkvwutrcdtcryffdclccfdgljubxxefnxfvqfvwmtqyehslovoskmxdgiuncvlravylmdenqgzbirfvvakflzstzysfdmziurzmunxvijdlkjyrxlyndzleujdzhlcvuffbwsutlkbpqihdmqlbphvnhqgctogiqzsiwttbfycjbbwhhpfduuldcjwinrzuvspmumgzujyyhtqcekfrvcihnhhshnvipzjtjocmazghntrnruwkmko";
+        //O/P = 17161;
+        String s = "skwhhaaunskegmdtutlgtteunmuuludii";
+        //O/P = 163;
+        System.out.println("Min number of moves from my code = " + minMovesToMakePalindrome(s));
+        System.out.println("Min number of moves from educative code = " + minMovesToMakePalindromeEducative(s));
     }
     public static int minMovesToMakePalindrome(String s) {
          int moves = 0;
@@ -40,33 +44,60 @@ public class MinNumOfMovesToMakePalindrome {
          int endIndex = arrLen - 1;
 
          while (startIndex < endIndex) {
-             char ch = chArr[startIndex] ;
+             //char ch = chArr[startIndex] ;
              int j = endIndex ;
              while (j>startIndex) {
-                 if (chArr[j] == ch) {
+                 if (chArr[j] == chArr[startIndex]) {
                      while (j<endIndex) {
                          char tempCh = chArr[j];
                          chArr[j] = chArr[j+1];
                          chArr[j+1] = tempCh;
-                         j++;
-                         moves++;
+                         ++j;
+                         ++moves;
                      }
+                     --endIndex;
                      break;
                  }
-                 j--;
+                 --j;
              }
              if (j == startIndex)  {
-                // int mid = arrLen/2;
-                 //char tempCh = chArr[mid];
-                 //chArr[mid] = chArr[startIndex];
-                // chArr[startIndex] = tempCh;
-                 moves += chArr.length / 2 - startIndex;
+                 //Now we need to move ch at the center of the string. because string
+                 // is odd therefore we didn't find this character in the string
+                 moves += s.length() / 2 - startIndex;
+                 System.out.println("Inside j==startIndex from my code");
              }
              startIndex++;
-             endIndex--;
+             //endIndex--;
          }
 
          return moves;
+    }
+
+    public static int minMovesToMakePalindromeEducative(String s) {
+        char[] chars = s.toCharArray();
+
+        int moves = 0;
+
+        for (int i = 0, j = chars.length - 1; i < j; ++i) {
+            int k = j;
+            for (; k > i; --k) {
+                if (chars[i] == chars[k]) {
+                    for (; k < j; ++k) {
+                        char temp = chars[k];
+                        chars[k] = chars[k + 1];
+                        chars[k + 1] = temp;
+                        ++moves;
+                    }
+                    --j;
+                    break;
+                }
+            }
+            if (k == i) {
+                moves += chars.length / 2 - i;
+                System.out.println("Inside k == i from my educative code");
+            }
+        }
+        return moves;
     }
 
 
