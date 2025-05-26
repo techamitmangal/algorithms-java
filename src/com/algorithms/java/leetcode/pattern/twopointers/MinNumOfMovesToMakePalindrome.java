@@ -25,6 +25,11 @@ s is guaranteed to be converted into a palindrome in a finite number of moves.
 
 package com.algorithms.java.leetcode.pattern.twopointers;
 
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
 public class MinNumOfMovesToMakePalindrome {
 
     public static void main (String[] args) {
@@ -98,6 +103,14 @@ public class MinNumOfMovesToMakePalindrome {
             }
         }
         return moves;
+    }
+
+    @Test
+    public void minMovesToMakePalindromeTest() {
+        String str1 = "skwhhaaunskegmdtutlgtteunmuuludii";
+        String str2 = "olstzgogeivvvgctrsbusvihcvbzzvsscycituqylxjoknhrcvuuzbtzlitovccykivkuavxzgvlmtiqtnmshonqclcknptabpewxxtqnvreoiyucsujxooxhoxwqirtqfzbgjgpsvlsmqfbmcsqlxirogcbwuiepmzifcljytcpougvfrihfjztikkjjtoyszhmfdqculcrmlwdameewzfznakyfgktonpqqouhnvvddtsoaxtbwhhyekokxpizxlhpdfghctuigaqcvpqsopgjrxoiroyfitofwojveowkqvosyqjuesovhqhrvryvdjbtykrvdrvrlyrayccfzzvcuagzziwmtbnrlvyytomwlzqqyworqmwuhnorihzgnrwbqbyqakrmfkdhutjlvjikxybztupvwqrrnxnfybbshxrbuwyxxgbrkbkvwutrcdtcryffdclccfdgljubxxefnxfvqfvwmtqyehslovoskmxdgiuncvlravylmdenqgzbirfvvakflzstzysfdmziurzmunxvijdlkjyrxlyndzleujdzhlcvuffbwsutlkbpqihdmqlbphvnhqgctogiqzsiwttbfycjbbwhhpfduuldcjwinrzuvspmumgzujyyhtqcekfrvcihnhhshnvipzjtjocmazghntrnruwkmko";
+        assertEquals(163, MinNumOfMovesToMakePalindrome.minMovesToMakePalindrome(str1)) ;
+        assertNotEquals(17141, MinNumOfMovesToMakePalindrome.minMovesToMakePalindrome(str2));
     }
 
 

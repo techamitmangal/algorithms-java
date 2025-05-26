@@ -1,6 +1,10 @@
 package com.algorithms.java.leetcode.pattern.twopointers;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /*
 Given a numeric string, numStr, representing a palindrome (composed only of digits). Return the smallest palindrome larger than numStr that can be created by rearranging its digits. If no such palindrome exists, return an empty string "".
@@ -19,9 +23,28 @@ numStr is a palindrome.
  */
 public class NextPalindromeUsingSameDigits {
     public static void main (String[] args) {
-        String s = "123321";
+        ConcurrentHashMap<String, String> tempMap = new ConcurrentHashMap<>();
+        tempMap.put("hell", "wor");
+        tempMap.put("Hello", "World");
+
+        Iterator<Map.Entry<String, String>> it = tempMap.entrySet().iterator();
+       /* while(it.hasNext()) {
+            Map.Entry<String, String> tempEntry = it.next();
+            System.out.print(tempEntry.getKey() + "     ");
+            System.out.println(tempEntry.getValue());
+        } */
+
+        /*tempMap.forEach((key, value) -> {
+            System.out.println(key);
+            System.out.println(value);
+        });*/
+
+        for (Map.Entry<String,String> e : tempMap.entrySet()) {
+            System.out.println(e.getValue() + " " + e.getKey());
+        }
+        //String s = "123321";
         //O/P = "132231"
-        System.out.println("Next Palindrome = " + findNextPalindrome(s));
+        //System.out.println("Next Palindrome = " + findNextPalindrome(s));
     }
 
     public static String findNextPalindrome(String numStr) {
