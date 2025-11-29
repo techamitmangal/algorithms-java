@@ -1,4 +1,4 @@
-package com.algorithms.java.leetcode.pattern.twopointers;
+package com.algorithms.java.pattern.twopointers;
 
 public class ValidWordAbbreviation {
     public static void main (String[] args) {

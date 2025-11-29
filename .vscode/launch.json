@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "LowestCommonAncestor",
+            "request": "launch",
+            "mainClass": "com.algorithms.java.leetcode.pattern.twopointers.LowestCommonAncestor",
+            "projectName": "algorithms-java_f63e60d6"
+        },
+        {
+            "type": "kotlin",
+            "request": "launch",
+            "name": "Kotlin Launch",
+            "projectRoot": "${workspaceFolder}",
+            "mainClass": "path.to.your.MainClassKt"
+        }
+    ]
+}

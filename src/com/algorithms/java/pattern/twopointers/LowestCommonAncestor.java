@@ -35,7 +35,7 @@ We are using constant space in this solution.
 */
 
 
-package com.algorithms.java.leetcode.pattern.twopointers;
+package com.algorithms.java.pattern.twopointers;
 
 // Simple Node structure with parent pointer only
 class Node {

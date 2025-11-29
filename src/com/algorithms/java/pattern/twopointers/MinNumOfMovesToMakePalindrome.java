@@ -23,7 +23,7 @@ s consists of only lowercase English letters.
 s is guaranteed to be converted into a palindrome in a finite number of moves.
  */
 
-package com.algorithms.java.leetcode.pattern.twopointers;
+package com.algorithms.java.pattern.twopointers;
 
 import org.junit.jupiter.api.Test;
 

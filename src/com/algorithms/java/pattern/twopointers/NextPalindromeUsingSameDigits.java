@@ -1,4 +1,4 @@
-package com.algorithms.java.leetcode.pattern.twopointers;
+package com.algorithms.java.pattern.twopointers;
 
 import java.util.Arrays;
 import java.util.Iterator;
