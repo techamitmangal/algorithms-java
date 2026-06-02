@@ -86,5 +86,36 @@ public class RotateArray {
             end -- ;
         }
     }
+
+    /*
+    Time Complexity:
+    The rotate function runs in O(n) time, where n is the length of the array.
+    Each reverse call is O(n), but since the three reversals cover the array in total just once,
+    the overall time complexity remains O(n). No built-in Java function with higher complexity is invoked. Space complexity is O(1).
+
+    Space Complexity:
+    The space complexity of the rotate function is O(1) since all operations (including the reverse function) are performed in-place,
+    and only a constant amount of extra space (for variables like temp, start, end) is used.
+    No additional data structures or built-in Java functions that require extra space are used.
+
+    Code Review:
+
+    Your implementation of the rotate function is correct and efficient.
+    It uses the “Reverse Array” approach,
+    which is an optimal way to rotate an array in-place with O(n) time and O(1) space.
+    The reverse helper method is well-implemented.
+
+    Observations:
+
+    The modulo operation for k is properly handled.
+    The three-step reversal (whole array, first k, remaining n-k) is correct.
+    No unnecessary space is used.
+    Pattern Use:
+
+    This approach aligns with the “In-Place Reversal of a Linked List/Array” pattern.
+    No significant improvements are necessary. Your code is concise and follows best practices for this specific problem and pattern.
+
+*/
+
 }
 
